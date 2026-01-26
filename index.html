@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Watch Video</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#000;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  padding:10px;
+}
+.container{
+  width:100%;
+  max-width:360px;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+.download-btn{
+  display:block;
+  width:100%;
+  padding:14px;
+  background:#24292e;
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+  border-radius:6px;
+  margin:10px 0;
+  font-weight:bold;
+  transition:.3s;
+}
+.download-btn:hover{background:#000}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <a id="videoLink" class="download-btn" rel="noopener">
+    ▶︎ PLAY VIDEO
+  </a>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+// take the parameter ?v=
+const videoFile = params.get("v") || "idlink.mp4";
+
+// title browser
+document.title = videoFile;
+
+// button link
+document.getElementById("videoLink").href =
+  "https://hubexlink.github.io/peep/?v=" + encodeURIComponent(videoFile);
+</script>
+
+</body>
+</html>
